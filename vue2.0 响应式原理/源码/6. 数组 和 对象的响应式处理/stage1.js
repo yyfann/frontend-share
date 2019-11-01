@@ -56,31 +56,13 @@ function defineReactive(obj, key, val) {
   })
 }
 
-
-function observeArray(items) {
-  items.forEach((item) => {
-    observe(item);
-  })
-}
-
-function observeObj(obj) {
-  Object.keys(obj).forEach((key) => {
-    defineReactive(obj, key, obj[key])
-  })
-}
-
 function observe(value) {
-  if (typeof value !== 'object') return 
+  if (typeof value !== 'object') return
 
-  if (Array.isArray(value)) {
-    observeArray(value);
-  } else {
-    observeObj(value);
+  for (const key in value) {
+    defineReactive(value, key, value[key])
   }
 }
-
-
-
 
 class Vue {
   constructor(options) {
@@ -102,8 +84,10 @@ class Vue {
   render() {
     // console.log('更新视图啦!')
     this.$el.innerHTML = `
+    <div>${this.$data.name}</div>
     <div>${this.$data.list[0]}</div>
     <div>${this.$data.obj.label}</div>
+    <div>${this.$data.age}</div>
   `
   }
 }
@@ -122,9 +106,11 @@ const vm = new Vue({
 vm.mount('#app')
 
 setTimeout(() => {
-  // 调试时要一行行调试
+  // vm.$data.name = 'lijian'
   // vm.$data.list[0] = 44
-  vm.$data.obj.label = 'bb'
+  // vm.$data.obj.label = 'bb'
+  // vm.$data.list = [44,55]
+  // vm.$data.money = 2000
 }, 800);
 
 // -------------- 存在问题 --------------
