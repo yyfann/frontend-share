@@ -7,7 +7,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "node-sass": "^4.12.0",
     "parse5": "^6.0.0",
     "pug-plain-loader": "^1.0.0",
