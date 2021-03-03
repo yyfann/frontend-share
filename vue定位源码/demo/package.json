@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@vue/cli-service": "^3.8.0",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "pug-filters": "^3.1.1",
     "pug-loader": "^2.4.0",
     "vue-template-compiler": "^2.6.10"
